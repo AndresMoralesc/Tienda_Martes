@@ -8,14 +8,15 @@
         <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.tienda</groupId>
+    <groupId>com.tiendaproyectog10</groupId>
     <artifactId>tienda</artifactId>
     <version>1</version>
     <name>tienda</name>
-    <description>Proyecto Tienda del curso WEB y Patrones</description>
+    <description>Proyecto Grupo 10 Tienda del curso WEB y Patrones</description>
     <properties>
-        <java.version>18</java.version>
+        <java.version>17</java.version>
     </properties>
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -32,6 +33,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -74,5 +76,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
