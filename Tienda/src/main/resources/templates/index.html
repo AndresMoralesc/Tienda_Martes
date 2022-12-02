@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head th:replace="layout/plantilla :: head" >
+        <title>TechShop</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+            <h2>[[#{index.titulo}]]</h2>
+            <h3>Nuestros artículos</h3>
+            <div th:if="${articulos !=null and !articulos.empty}">
+                <table border="1">
+                    <tr>
+                        <th>[[#{articulo.descripcion}]]</th> 
+                        <th>[[#{articulo.precio}]]</th> 
+                        <th>[[#{articulo.comprar}]]</th>
+                        
+                    </tr>
+                    <tr th:each="articulo : ${articulos}">
+                        <td>[[${articulo.descripcion}]]</td> 
+                        <td style="text-align: right">[[${#numbers.formatDecimal(articulo.precio,3,2)}]]</td>
+                        <td><a th:href="@{/carrito/agregar/} + ${articulo.idArticulo}">[[#{accion.agregar}]]</a></td>
+                        </tr>            
+                </table>
+            </div>
+
+            <div th:if="${articulos ==null or articulos.empty}">
+                <h2>[[#{articulo.no_mostrar}]]</h2>
+            </div>
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
