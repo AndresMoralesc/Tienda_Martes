@@ -18,6 +18,13 @@ public class ClienteServiceImpl implements ClienteService
 
     @Autowired
     private CreditoDao creditoDao;
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Cliente> buscarPorApellidos(String apellidos) 
+    {
+        return (List<Cliente>)clienteDao.findByApellidos(apellidos);
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -32,6 +39,14 @@ public class ClienteServiceImpl implements ClienteService
     {
         return clienteDao.findById(cliente.getIdCliente()).orElse(null);
     }
+    
+   /*@Override
+    @Transactional
+    public void findBy(Cliente apellidos) 
+    {
+        clienteDao.findBy(apellidos);
+    } */
+
 
     @Override
     @Transactional

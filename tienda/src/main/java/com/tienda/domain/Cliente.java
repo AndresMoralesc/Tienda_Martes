@@ -27,7 +27,6 @@ public class Cliente implements Serializable
     @ManyToOne 
 
     private Credito credito; 
-    
 
     public Cliente(){}
 
